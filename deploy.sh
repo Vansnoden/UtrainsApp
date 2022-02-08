@@ -1,6 +1,6 @@
 # creating virtual environment
 echo "... creating virtual environment"
-python3 -m venv venv
+python3 -m venv venv > /dev/null
 test $? = 0 && echo "... virtual environment created"
 # activating virtual environment
 source venv/bin/activate > /dev/null
@@ -14,5 +14,5 @@ test $? = 0 && echo "... requirements installed"
 # migrate
 ./manage.py migrate > /dev/null
 # launch server
+test $? = 0 && echo "configuration successfull"
 ./manage.py runserver 0.0.0.0:8000 > /dev/null
-test $? = 0 && echo "... project running at http://<your_ip_address>:8000"
